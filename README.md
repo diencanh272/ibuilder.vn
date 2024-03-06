@@ -68,3 +68,13 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+### \***\*\*\*\*\***\*\***\*\*\*\*\*** Note Dependence
+
+1. CSS: CSS module, thư viện clsx(là hàm) thêm nhiều className: clsx(style.name,style.name2,style.name3....)
+   lấy giá trị từ biến clsx({[style.active]: true})
+   Css global: 'className' : true
+2. SASS
+3. Router: định tuyến nội bộ( Routes -> Routes -> Link to:'')
+4. file ở thư mục gốc .evn.local ( đổi localhost bằng cách thêm PORT=xxxx vào file )
+5. thư viện customize-cra: cấu hình lại webpack
