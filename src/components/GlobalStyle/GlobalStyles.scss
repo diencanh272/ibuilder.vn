@@ -1,21 +1,102 @@
+@use './base';
+@use './abstracts';
+
 @import 'normalize.css';
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap');
 
 :root {
-    --primary: #fe2c55;
+    //Light theme
+    --primary-color: rgb(254, 44, 85);
+    --primary-hover-button: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), rgb(254, 44, 85);
+    --secondary-color: rgba(22, 24, 35, 0.06);
+    --outline-button: rgba(22, 24, 35, 0.06);
+    --outline-hover-button: #e2e2e2;
+    --white: #fff;
+    --text-color-default: #111;
+    --text-input-color: rgb(22, 24, 35);
+    --border-input-search: #d9dadc;
+    --background-hover-account-color: #d9dadc;
+
+    //Dark theme
+
+    //Default layout
+    --default-layout-header-height: 72px;
+    --default-layout-width: 1325px;
+    --navbar-height: 60px;
+
+    // Icon colors
+    --color-icon-brand-primary: #e60023;
+    --icons-color: rgba(22, 24, 35, 0.34);
+}
+
+*,
+::after,
+::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 * {
-    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
 }
 
 html {
     font-size: 62.5%;
+    scroll-behavior: smooth;
 }
 
 body {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.6rem;
     line-height: 1.5;
-    text-rendering: optimizeSpeed;
+    //text-rendering: optimizeSpeed; // không bị cảnh báo sai chính tả
+    color: var(--text-color-default);
+}
+
+input,
+select,
+label,
+button {
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+}
+
+input {
+    cursor: text;
+}
+
+select {
+    cursor: default;
+}
+
+a,
+img,
+button,
+input,
+textarea,
+select {
+    font-family: inherit;
+    color: inherit;
+}
+
+a[href] {
+    text-decoration: none;
+}
+
+.container {
+    @include abstracts.screen(sm) {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+    }
+}
+
+.line-clamp {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }

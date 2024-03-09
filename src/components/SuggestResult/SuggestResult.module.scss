@@ -1,0 +1,38 @@
+.wrapper {
+    display: flex;
+    height: 80px;
+    background: #eee;
+    border-radius: 20px;
+    margin: 9px 0;
+    cursor: pointer;
+}
+
+.thumb {
+    width: 80px;
+    height: auto;
+    object-fit: cover;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.info {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    flex: 1;
+}
+
+.name {
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+.check {
+    margin-left: 6px;
+    color: rgb(23, 213, 236);
+}
+
+.brand {
+    font-size: 1.4rem;
+    color: rgba(22, 24, 35, 0.5);
+}

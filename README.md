@@ -78,3 +78,11 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 3. Router: định tuyến nội bộ( Routes -> Routes -> Link to:'')
 4. file ở thư mục gốc .evn.local ( đổi localhost bằng cách thêm PORT=xxxx vào file )
 5. thư viện customize-cra: cấu hình lại webpack
+6. Các bước dựng dự án:
+    1. cấu hình prettier, ghi đè webpack(~: đặt về .src)
+    2. cấu hình Router và dựng Layout
+7. Thư viện Tippyjs/react: hiển thị dropdown, poppers, tooltips
+
+### **\*\***\*\*\***\*\*** Xử lý lại
+
+1.xử lý active hiện border ở search input

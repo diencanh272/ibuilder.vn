@@ -1,0 +1,181 @@
+.wrapper {
+    --border-search-radius: 92px;
+    --search-height: 46px;
+    --search-top-spacer: 9px;
+    --search-button-width: 52px;
+
+    width: 100%;
+    height: var(--default-layout-header-height);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 8px 8px -8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inner {
+    width: var(--default-layout-width);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo {
+    display: flex;
+    justify-content: center;
+
+    h1 {
+        color: var(--color-icon-brand-primary);
+        font-style: oblique;
+        font-size: 2.4rem;
+        padding-left: 10px;
+    }
+}
+
+.search,
+.search-result {
+    width: 700px;
+}
+
+.search {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    height: var(--search-height);
+
+    color: var(--text-input-color);
+    background-color: var(--secondary-color);
+
+    border-radius: var(--border-search-radius);
+    padding-left: 16px;
+    border: 2px solid transparent;
+
+    &:focus-within {
+        border-color: var(--border-input-search);
+    }
+
+    &:hover {
+        border-color: var(--border-input-search);
+        color: rgba(22, 24, 35, 0.75);
+        background-color: rgba(22, 24, 35, 0.06);
+    }
+
+    input {
+        width: 88%;
+        height: 100%;
+        padding-right: 20px;
+        font-size: 1.6rem;
+        color: var(--text-color);
+        caret-color: var(--text-input-color);
+        background-color: transparent;
+        border: 1px solid transparent;
+    }
+
+    input:not(:placeholder-shown) ~ &-btn {
+        color: rgba(22, 24, 35, 0.75);
+        background-color: rgba(22, 24, 35, 0.06);
+    }
+
+    &-btn {
+        position: relative;
+        width: var(--search-button-width);
+        height: auto;
+        border-top-right-radius: var(--border-search-radius);
+        border-bottom-right-radius: var(--border-search-radius);
+        font-size: 2rem;
+        color: var(--icons-color);
+
+        &:hover {
+            cursor: pointer;
+            background-color: rgba(22, 24, 25, 0.03);
+            color: rgba(22, 24, 35, 0.75);
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            height: calc(var(--search-height) - var(--search-top-spacer) * 2);
+            width: 1px;
+            top: var(--search-top-spacer);
+            right: var(--search-button-width);
+            background-color: #d7d7d9;
+        }
+    }
+
+    &-popper {
+        padding: 0 20px;
+    }
+
+    &-title {
+        font-size: 1.6rem;
+        font-weight: 600;
+        color: var(--text-color-default);
+    }
+}
+
+.clear-btn,
+.spinner {
+    position: absolute;
+    right: var(--search-button-width);
+    top: 50%;
+    right: calc(var(--search-button-width) + 16px);
+    transform: translateY(-50%);
+    color: var(--icons-color);
+}
+
+.account {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    &-notification,
+    &-message,
+    &-user,
+    &-help {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--icons-color);
+
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+
+        font-size: 2.6rem;
+        cursor: pointer;
+
+        &:hover {
+            background-color: var(--background-hover-account-color);
+        }
+    }
+    &-notification,
+    &-message {
+        &::after {
+            content: '99+';
+            position: absolute;
+            width: 20px;
+            height: 16px;
+            padding-left: 1px;
+            border-radius: 10px;
+            background-color: var(--primary-color);
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 500;
+            top: 2px;
+            right: -2px;
+            border: 1px solid #fff;
+        }
+    }
+
+    &-message {
+    }
+
+    &-user {
+    }
+    &-help {
+        width: 30px;
+        height: 30px;
+        font-size: 1.6rem;
+    }
+}

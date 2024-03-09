@@ -1,5 +1,131 @@
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import classNames from 'classnames/bind';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+    faCircleXmark,
+    faSpinner,
+    faMagnifyingGlass,
+    faBell,
+    faCommentDots,
+    faUser,
+    faChevronDown,
+} from '@fortawesome/free-solid-svg-icons';
+import Tippy from '@tippyjs/react/headless';
+
+import styles from './Header.module.scss';
+import images from '~/assets/images';
+import { Wrapper as PopperWrapper } from '~/components/Popper';
+import SuggestResult from '~/components/SuggestResult';
+import Button from '~/components/Button';
+
+const cx = classNames.bind(styles);
+
 function Header() {
-    return <h1>Header</h1>;
+    const [searchResult, setSearchResult] = useState([]);
+
+    const handleChangeInputSearch = () => {
+        setTimeout(() => {
+            setSearchResult([1, 2, 3]);
+        }, 100);
+    };
+    useEffect(() => {}, []);
+
+    return (
+        <header className={cx('wrapper')}>
+            <div className={cx('inner', 'container')}>
+                {/* Logo */}
+                <Link to="/" className={cx('logo')}>
+                    <img src={images.logo} alt="iBuilder" />
+                    <h1>iBuilder.vn</h1>
+                </Link>
+                <Tippy
+                    interactive
+                    visible={searchResult.length > 0}
+                    render={(attrs) => (
+                        <div className={cx('search-result')} s tabIndex="-1" {...attrs}>
+                            <PopperWrapper>
+                                <div className={cx('search-popper')}>
+                                    <h3 className={cx('search-title')}>Ý tưởng dành cho bạn</h3>
+                                    <div className={cx('row row-cols-3')}>
+                                        {/**Idea1 */}
+                                        <div className={cx('col')}>
+                                            <SuggestResult />
+                                        </div>
+
+                                        {/**Idea2 */}
+                                        <div className={cx('col')}>
+                                            <SuggestResult />
+                                        </div>
+
+                                        {/**Idea3 */}
+                                        <div className={cx('col')}>
+                                            <SuggestResult />
+                                        </div>
+
+                                        {/**Idea4 */}
+                                        <div className={cx('col')}>
+                                            <SuggestResult />
+                                        </div>
+
+                                        {/**Idea4 */}
+                                        <div className={cx('col')}>
+                                            <SuggestResult />
+                                        </div>
+
+                                        {/**Idea4 */}
+                                        <div className={cx('col')}>
+                                            <SuggestResult />
+                                        </div>
+                                    </div>
+                                </div>
+                            </PopperWrapper>
+                        </div>
+                    )}
+                >
+                    <div className={cx('search')}>
+                        <input placeholder="Tìm kiếm..." spellCheck={false} onClick={handleChangeInputSearch} />
+                        <button className={cx('clear-btn')}>
+                            <FontAwesomeIcon icon={faCircleXmark} />
+                        </button>
+                        {/**loading icons */}
+                        <FontAwesomeIcon className={cx('spinner')} icon={faSpinner} />
+                        <button className={cx('search-btn')}>
+                            <FontAwesomeIcon icon={faMagnifyingGlass} />
+                        </button>
+                    </div>
+                </Tippy>
+                <div className={cx('account')}>
+                    <Tippy content="Thông báo">
+                        <div className={cx('account-notification')}>
+                            <FontAwesomeIcon icon={faBell} />
+                        </div>
+                    </Tippy>
+                    <Tippy content="Tin nhắn">
+                        <div className={cx('account-message')}>
+                            <FontAwesomeIcon icon={faCommentDots} />
+                        </div>
+                    </Tippy>
+                    <Tippy content="Tài khoản">
+                        <div className={cx('account-user')}>
+                            <FontAwesomeIcon icon={faUser} />
+                        </div>
+                    </Tippy>
+                    {/* <Tippy content="Tùy chọn">
+                        <div className={cx('account-help')}>
+                            <FontAwesomeIcon icon={faChevronDown} />
+                        </div>
+                    </Tippy> */}
+                    <Button to="/login" primary>
+                        Log in
+                    </Button>
+                    <Button rightIcon={<FontAwesomeIcon icon={faChevronDown} />} text>
+                        Upload
+                    </Button>
+                </div>
+            </div>
+        </header>
+    );
 }
 
 export default Header;
