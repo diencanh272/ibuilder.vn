@@ -17,7 +17,7 @@ import styles from './Header.module.scss';
 import images from '~/assets/images';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import SuggestResult from '~/components/SuggestResult';
-import Button from '~/components/Button';
+// import Button from '~/components/Button';
 
 const cx = classNames.bind(styles);
 
@@ -32,18 +32,18 @@ function Header() {
     useEffect(() => {}, []);
 
     return (
-        <header className={cx('wrapper')}>
-            <div className={cx('inner', 'container')}>
+        <header className={cx('container', 'wrapper')}>
+            <div className={cx('inner')}>
                 {/* Logo */}
                 <Link to="/" className={cx('logo')}>
                     <img src={images.logo} alt="iBuilder" />
-                    <h1>iBuilder.vn</h1>
+                    <h1>iBuild.vn</h1>
                 </Link>
                 <Tippy
                     interactive
                     visible={searchResult.length > 0}
                     render={(attrs) => (
-                        <div className={cx('search-result')} s tabIndex="-1" {...attrs}>
+                        <div className={cx('search-result')} tabIndex="-1" {...attrs}>
                             <PopperWrapper>
                                 <div className={cx('search-popper')}>
                                     <h3 className={cx('search-title')}>Ý tưởng dành cho bạn</h3>
@@ -96,32 +96,21 @@ function Header() {
                     </div>
                 </Tippy>
                 <div className={cx('account')}>
-                    <Tippy content="Thông báo">
-                        <div className={cx('account-notification')}>
-                            <FontAwesomeIcon icon={faBell} />
-                        </div>
-                    </Tippy>
-                    <Tippy content="Tin nhắn">
-                        <div className={cx('account-message')}>
-                            <FontAwesomeIcon icon={faCommentDots} />
-                        </div>
-                    </Tippy>
-                    <Tippy content="Tài khoản">
-                        <div className={cx('account-user')}>
-                            <FontAwesomeIcon icon={faUser} />
-                        </div>
-                    </Tippy>
-                    {/* <Tippy content="Tùy chọn">
-                        <div className={cx('account-help')}>
-                            <FontAwesomeIcon icon={faChevronDown} />
-                        </div>
-                    </Tippy> */}
-                    <Button to="/login" primary>
-                        Log in
-                    </Button>
-                    <Button rightIcon={<FontAwesomeIcon icon={faChevronDown} />} text>
-                        Upload
-                    </Button>
+                    <div className={cx('account-notification')}>
+                        <FontAwesomeIcon icon={faBell} />
+                    </div>
+
+                    <div className={cx('account-message')}>
+                        <FontAwesomeIcon icon={faCommentDots} />
+                    </div>
+
+                    <div className={cx('account-user')}>
+                        <FontAwesomeIcon icon={faUser} />
+                    </div>
+
+                    <div className={cx('account-help')}>
+                        <FontAwesomeIcon icon={faChevronDown} />
+                    </div>
                 </div>
             </div>
         </header>

@@ -3,5 +3,10 @@
     align-items: center;
     justify-content: center;
 
+    background: aliceblue;
     height: var(--navbar-height);
+
+    a span {
+        font-weight: 600;
+    }
 }

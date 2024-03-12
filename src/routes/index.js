@@ -6,6 +6,7 @@ import Following from '~/pages/Following';
 import Profile from '~/pages/Profile';
 import Upload from '~/pages/Upload';
 import Search from '~/pages/Search';
+import News from '~/pages/News';
 
 //*Public Route
 const publicRoute = [
@@ -14,6 +15,7 @@ const publicRoute = [
     { path: '/profile', component: Profile },
     { path: '/upload', component: Upload, layout: HeaderOnly },
     { path: '/search', component: Search, layout: null },
+    { path: '/news', component: News },
 ];
 
 //*Private Route (redirect Login Page)

@@ -1,0 +1,27 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-wrap {
+    display: flex;
+    overflow: hidden;
+}
+
+.image {
+    height: 103px;
+    border-radius: 20px;
+    object-fit: cover;
+    transition: transform 0.5s ease-in-out;
+}
+
+.active {
+    transform: translateX(100%);
+}
+
+.arrow-button {
+    font-size: 24px;
+    margin: 0 10px;
+    cursor: pointer;
+}

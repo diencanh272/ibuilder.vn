@@ -85,4 +85,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ### **\*\***\*\*\***\*\*** Xử lý lại
 
-1.xử lý active hiện border ở search input
+1. xử lý active navbar
+2. fix header
+3. xử lý click search
+4. xử lý carousel
